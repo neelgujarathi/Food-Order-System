@@ -1,0 +1,46 @@
+<?php
+require('fpdf.php');
+
+$pdf = new FPDF();
+
+if(isset($_POST['submit']))
+{
+    $name = $_POST['name'];
+    $contact = $_POST['contact'];
+    $email = $_POST['email'];
+    $address = $_POST['address'];
+    $itemtype = $_POST['fix'];
+    $itemname = $_POST['optionlist'];
+    $quantity = $_POST['quantity'];
+    $cost = $_POST['wpn'];
+
+    $pdf->AddPage();
+    $pdf->SetFont('helvetica', '8', 19);
+
+    $pdf->Cell(50,10,"Name",1,0);
+    $pdf->Cell(50,10,$name,1,1);
+
+    $pdf->Cell(50,10,"Contact",1,0);
+    $pdf->Cell(50,10,$contact,1,1);
+
+    $pdf->Cell(50,10,"Email",1,0);
+    $pdf->Cell(50,10,$email,1,1);
+
+    $pdf->Cell(50,10,"Address",1,0);
+    $pdf->Cell(50,10,$address,1,1);
+
+    $pdf->Cell(50,10,"Item Type",1,0);
+    $pdf->Cell(50,10,$itemtype,1,1);
+
+    $pdf->Cell(50,10,"Item Name",1,0);
+    $pdf->Cell(50,10,$itemname,1,1);
+
+    $pdf->Cell(50,10,"Quantity",1,0);
+    $pdf->Cell(50,10,$quantity,1,1);
+
+    $pdf->Cell(50,10,"Cost",1,0);
+    $pdf->Cell(50,10,$cost,1,1);
+
+    $pdf->Output();
+}
+?>
